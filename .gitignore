@@ -1,0 +1,15 @@
+# Ignore swap files
+*.swp
+
+# Ignore all .env files
+*.env
+
+# Ignore the build directory
+build/
+
+# Ignore all files in a directory named temp
+temp/
+
+# Ignore all files ending with .tmp
+*.tmp
+

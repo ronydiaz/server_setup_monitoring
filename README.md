@@ -40,6 +40,7 @@ This project provides a simple and efficient way to set up an SSH server on mult
 ```bash
 git clone https://github.com/your-username/ssh-server-cicd.git
 cd ssh-server-cicd
+```
 
 ### Step 2: Install SSH Server
 ```bash

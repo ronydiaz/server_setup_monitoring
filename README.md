@@ -46,15 +46,18 @@ cd ssh-server-cicd
 ```bash
 sudo apt update
 sudo apt install openssh-server
+```
 
 ### Step 3: Start and Enable SSH
 ```bash
 sudo systemctl enable ssh
 sudo systemctl start ssh
+```
 
 ### Step 4: SSH Key Pair Generation
 ```bash
 ssh-keygen -t rsa -b 4096
+```
 
 ### Step 5: Install CI/CD Tools
 You can install tools like Jenkins or integrate with GitLab/GitHub CI runners to handle builds and deployments remotely using SSH.
@@ -66,10 +69,12 @@ Edit the SSH configuration file (/etc/ssh/sshd_config) for each device to improv
 PermitRootLogin no
 PasswordAuthentication no
 AllowUsers your-username
+```
 
 After editing the file, restart the SSH service:
 ```bash
 sudo systemctl restart ssh
+```
 
 ###CI/CD Pipeline Integration
 Configure your CI/CD pipeline to use SSH for executing remote commands on your devices. Here’s an example GitLab CI configuration:
@@ -78,6 +83,7 @@ Copy code
 deploy:
   script:
     - ssh user@device-ip 'bash -s' < deploy-script.sh
+```
 
 ##Usage
 Starting and Stopping the SSH Server
@@ -86,24 +92,29 @@ To manually start or stop the SSH server, use the following commands:
 - Start SSH:
 ```bash
 sudo systemctl start ssh
+```
 
 - Stop SSH:
 ```bash
 sudo systemctl stop ssh
+```
 
 - Restart SSH:
 ```bash
 sudo systemctl restart ssh
+```
 
 ###Monitoring SSH Status
 You can check the SSH service status with:
 ```bash
 sudo systemctl status ssh
+```
 
 ###Connecting to a Device via SSH
 To connect to one of your devices from your CI/CD pipeline or local machine:
 ```bash
 ssh user@device-ip
+```
 
 ##Security Best Practices
 - Disable root login: Edit /etc/ssh/sshd_config and set PermitRootLogin no.

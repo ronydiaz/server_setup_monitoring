@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Defininf log file
+# Defining log file
 log_file="./logs/serverconfig_installation_log.txt"
 
 # Updating packages

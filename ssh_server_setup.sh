@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Defining log file
-log_file="./logs/serverconfig_installation_log.txt"
+log_file="./logs/serverconfig_installation_log.log"
 
 # Updating packages
-echo -e "========== UPDATING PACKAGES ==========" | tee -a "$log_file"
+echo -e "========== UPDATING PACKAGES ==========" > "$log_file"
 sudo apt update 2> /dev/null | tee -a "$log_file" 
 sudo apt upgrade -y 2> /dev/null 2>&1 | tee -a "$log_file"
 

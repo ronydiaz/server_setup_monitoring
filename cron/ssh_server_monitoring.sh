@@ -1,9 +1,10 @@
 #!/bin/bash
 
 #Defining monitoring log
-log_file="./logs/server_monitor_log.txt"
+log_file="./../logs/ssh_server_monitoring.log" 
 
-echo -e "\n========== CHECK SSH STATUS ==========" | tee -a "$log_file"
+echo -e "\n========== CHECK SSH STATUS ==========" > "$log_file"
+
 ssh_status=$(systemctl status ssh | grep "Active: ") 
 echo -e "$ssh_status" | tee -a "$log_file"
 

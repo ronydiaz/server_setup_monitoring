@@ -1,8 +1,10 @@
 #!/bin/bash
 
+#Defining monitoring log
 log_file="./../logs/ssh_server_monitoring.log" 
 
 echo -e "\n========== CHECK SSH STATUS ==========" > "$log_file"
+
 ssh_status=$(systemctl status ssh | grep "Active: ") 
 echo -e "$ssh_status" | tee -a "$log_file"
 
@@ -14,3 +16,8 @@ fi
 echo -e "\n========== USER & IP ADDRESS =========="
 hostname | tee -a "$log_file"
 hostname -I | tee -a "$log_file"
+
+
+
+
+

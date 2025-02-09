@@ -13,3 +13,5 @@ temp/
 # Ignore all files ending with .tmp
 *.tmp
 
+# Ignore Logs directory
+logs/

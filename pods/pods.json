@@ -1,0 +1,122 @@
+[
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "nginx-pod",
+    "labels": {
+      "app": "web"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "nginx-container",
+        "image": "nginx:latest",
+        "ports": [
+          {
+            "containerPort": 80
+          }
+        ],
+        "resources": {
+          "requests": {
+            "memory": "64Mi",
+            "cpu": "250m"
+          },
+          "limits": {
+            "memory": "128Mi",
+            "cpu": "500m"
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "redis-pod",
+    "labels": {
+      "app": "database"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "redis-container",
+        "image": "redis:6.2",
+        "ports": [
+          {
+            "containerPort": 6379
+          }
+        ],
+        "resources": {
+          "requests": {
+            "memory": "128Mi",
+            "cpu": "500m"
+          },
+          "limits": {
+            "memory": "256Mi",
+            "cpu": "1"
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "app-pod",
+    "labels": {
+      "app": "application"
+    }
+  },
+  "spec": {
+    "containers": [
+      {
+        "name": "app-container",
+        "image": "my-app:1.0",
+        "env": [
+          {
+            "name": "ENV_VAR",
+            "value": "production"
+          }
+        ],
+        "ports": [
+          {
+            "containerPort": 8080
+          }
+        ],
+        "resources": {
+          "requests": {
+            "memory": "128Mi",
+            "cpu": "250m"
+          },
+          "limits": {
+            "memory": "512Mi",
+            "cpu": "1"
+          }
+        },
+        "volumeMounts": [
+          {
+            "name": "config-volume",
+            "mountPath": "/app/config"
+          }
+        ]
+      }
+    ],
+    "volumes": [
+      {
+        "name": "config-volume",
+        "configMap": {
+          "name": "app-config"
+        }
+      }
+    ]
+  }
+}
+]
+

@@ -1,3 +1,5 @@
+version: "3"
+
 # networks:
 #   monitoring:
 #     driver: bridge
@@ -20,6 +22,7 @@ services:
       - 9100:9100
     # networks:
     #   - monitoring
+  
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -37,6 +40,7 @@ services:
       - "host.docker.internal:host-gateway"
       # NOTE: you may need to use host-gateway instead of node-exporter -- some versions of linux require this small change
       # - host.docker.internal:host-gateway
+  
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -48,5 +52,20 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=grafana
     volumes:
       - ./grafana:/etc/grafana/provisioning/datasources
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    #environment:
+    #  - JAVA_OPTS=-Djenkins.install.runSetupWizard=false  # Optional: to disable the setup wizard on first run
+
 volumes:
   prom_data:
+  jenkins_home:
+

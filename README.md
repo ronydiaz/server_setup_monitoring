@@ -62,8 +62,8 @@ ssh-keygen -t rsa -b 4096
 ### Step 5: Install CI/CD Tools
 You can install tools like Jenkins or integrate with GitLab/GitHub CI runners to handle builds and deployments remotely using SSH.
 
-##Configuration
-###SSH Server Configuration
+## Configuration
+### SSH Server Configuration
 Edit the SSH configuration file (/etc/ssh/sshd_config) for each device to improve security and customize settings. Example changes include:
 ```bash
 PermitRootLogin no
@@ -76,7 +76,7 @@ After editing the file, restart the SSH service:
 sudo systemctl restart ssh
 ```
 
-###CI/CD Pipeline Integration
+### CI/CD Pipeline Integration
 Configure your CI/CD pipeline to use SSH for executing remote commands on your devices. Here’s an example GitLab CI configuration:
 ```yaml
 Copy code
@@ -85,7 +85,7 @@ deploy:
     - ssh user@device-ip 'bash -s' < deploy-script.sh
 ```
 
-##Usage
+## Usage
 Starting and Stopping the SSH Server
 To manually start or stop the SSH server, use the following commands:
 
@@ -104,25 +104,25 @@ sudo systemctl stop ssh
 sudo systemctl restart ssh
 ```
 
-###Monitoring SSH Status
+### Monitoring SSH Status
 You can check the SSH service status with:
 ```bash
 sudo systemctl status ssh
 ```
 
-###Connecting to a Device via SSH
+### Connecting to a Device via SSH
 To connect to one of your devices from your CI/CD pipeline or local machine:
 ```bash
 ssh user@device-ip
 ```
 
-##Security Best Practices
+## Security Best Practices
 - Disable root login: Edit /etc/ssh/sshd_config and set PermitRootLogin no.
 - Use key-based authentication: Ensure that PasswordAuthentication is set to no in the SSH configuration.
 - Restrict users: Use AllowUsers in the SSH config to restrict which users can log in.
 - Firewall settings: Ensure that only trusted sources can access your SSH port (usually port 22).
 
-##License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 

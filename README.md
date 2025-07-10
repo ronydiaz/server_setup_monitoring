@@ -13,7 +13,6 @@ This repository contains the setup and management configurations for an SSH serv
 - [License](#license)
 
 ## Overview
-
 This project provides a simple and efficient way to set up an SSH server on multiple devices like Raspberry Pi for CI/CD workflows. The primary objective is to enable automated deployments and integration testing on devices in a distributed environment using SSH.
 
 ### Target Devices
@@ -28,7 +27,6 @@ This project provides a simple and efficient way to set up an SSH server on mult
 - **Automation Ready**: Designed for automated build, test, and deployment pipelines.
 
 ## Requirements
-
 - **Linux-based device (Raspberry Pi or other)**.
 - **Python 3.x** (optional, for scripting automation).
 - **CI/CD Tools**: Jenkins, GitLab CI, GitHub Actions, or others (depending on your environment).
